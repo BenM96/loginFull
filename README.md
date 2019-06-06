@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-readme
+# login Full
 =======
 # How the app works
 
