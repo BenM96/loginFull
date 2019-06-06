@@ -41,10 +41,10 @@ This file has more .yaml files that can be run with kubernetes as before with "k
 The project can then be deployed from Jenkins by creating a job that runs to following script:
 
 
-"""
+""" <br/>
 git init <br/>
 git pull https://github.com/BenM96/loginFull <br/>
-kubectl apply -f ./kube
+kubectl apply -f ./kube <br/>
 """
 
 You can then access the project as before.
