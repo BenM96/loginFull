@@ -1,5 +1,7 @@
 # Login Full
-===============================================================================
+
+This is the full documentation of how to deploy the login application using Docker and kubernetes
+
 # How the app works
 
 The purpose of this app is to provide a secure login and register function that can be easily attached to other projects.
