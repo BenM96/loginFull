@@ -42,8 +42,8 @@ The project can then be deployed from Jenkins by creating a job that runs to fol
 
 
 """
-git init /n
-git pull https://github.com/BenM96/loginFull /n
+git init <br/>
+git pull https://github.com/BenM96/loginFull <br/>
 kubectl apply -f ./kube
 """
 
