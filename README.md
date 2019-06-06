@@ -16,7 +16,7 @@ This project can be deployed using Docker and docker-compose. to do this simply 
 
 The Docker images created in this process can also be pushed to Docker hub so they can be pulled and used by other applications without needing to obtain the original code and build their own Docker image.
 
-Once running go to your http://[externalIP]/authentication/login to access the login app.
+Once running go to http://[externalIP]/authentication/login to access the login app.
 
 To stop the Docker images from running run "docker-compose down"
 
