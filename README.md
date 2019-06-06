@@ -1,5 +1,5 @@
 # Login Full
-================================================================================
+===============================================================================
 # How the app works
 
 The purpose of this app is to provide a secure login and register function that can be easily attached to other projects.
