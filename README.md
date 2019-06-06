@@ -20,6 +20,8 @@ Once running go to your http://[externalIP]/authentication/login to access the l
 
 To stop the Docker images from running run "docker-compose down"
 
+![docker flow](docker-composeFlow.png)
+
 # kubernetes
 
 In addition to Docker to project can be deployed with kubernetes. Before you do this however, you need to create a cluster that will hold the pods, services and load balancer. This can be done with the command "gcloud component clusters create [cluster name]".
