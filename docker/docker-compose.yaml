@@ -1,0 +1,75 @@
+version: '3.7'
+services:
+  mongo:
+    image: mongo:latest
+  mongo-service:
+    image: benm96/mongo-service:latest
+    build: ./mongo-service
+    depends_on:
+    - mongo
+  secret-service:
+    image: benm96/secret-service:latest
+    build: ./secret-service
+    depends_on:
+    - mongo-service
+  aes-encryption-service:
+    image: benm96/aes-encryption-service:latest
+    build: ./aes-encryption-service
+  email-service:
+    image: benm96/email-service:latest
+    build: ./email-service
+    environment:
+      GMAIL_USER: ${GMAIL_USER}
+      GMAIL_PASS: ${GMAIL_PASS}
+      SERVICE_NAME: ${SERVICE_NAME}
+    depends_on:
+    - mongo-service
+    - aes-encryption-service
+  dashboard-service:
+    image: benm96/dashboard-service:latest
+    build: ./dashboard-service
+    depends_on:
+    - account-service
+  account-service:
+    image: benm96/account-service:latest
+    build: ./account-service
+    depends_on:
+    - secret-service
+    - mongo-service
+  session-token-service:
+    image: benm96/session-token-service:latest
+    build: ./session-token-service
+    depends_on:
+    - aes-encryption-service
+    - mongo-service
+  authentication-service:
+    image: benm96/authentication-service:latest
+    build: ./authentication-service
+    environment:
+      ACTIVATION_LINK: ${ACTIVATION_LINK}
+    depends_on:
+    - account-service
+    - email-service
+    - session-token-service
+  role-service:
+    image: benm96/role-service:latest
+    build: ./role-service
+  group-service:
+    image: benm96/group-service:latest
+    build: ./group-service
+  authentication-client:
+    image: benm96/authentication-client:latest
+    build: ./authentication-client
+  dashboard-client:
+    image: benm96/dashboard-client:latest
+    build: ./dashboard-client
+  gateway:
+    image: benm96/gateway:latest
+    build: ./gateway
+    ports:
+    - target: 80
+      published: 80
+    depends_on:
+    - dashboard-client
+    - authentication-client
+    - authentication-service

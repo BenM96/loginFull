@@ -1,0 +1,6 @@
+.bash*
+.profile
+.viminfo
+.gitconfig
+.kube
+.cash/*
